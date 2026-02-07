@@ -32,6 +32,7 @@ Memory usage in MB:
 - RN Image consistently peaks at 168 MB and stays there (no memory release)
 - Expo Image has variable peak usage but always settles down to ~40 MB
 - Expo Image releases memory after loading; RN Image does not
+- Using `ExpoImage.clearDiskCache()` and/or `ExpoImage.clearMemoryCache()` provided no immediate memory benefits (possibly due to much-delayed garbage collection?)
 
 Overall, Expo Image is long term more memory efficient, even if it can sometimes cause high spikes.
 In an app with many large images, this will greatly reduce memory usage (by 75%) and may improve scrolling performance, which would be most noticable on a phone with 120 fps.
