@@ -5532,6 +5532,16 @@ react-native-is-edge-to-edge@^1.1.6, react-native-is-edge-to-edge@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-is-edge-to-edge/-/react-native-is-edge-to-edge-1.2.1.tgz#64e10851abd9d176cbf2b40562f751622bde3358"
   integrity sha512-FLbPWl/MyYQWz+KwqOZsSyj2JmLKglHatd3xLZWskXOpRaio4LfEDEz8E/A6uD8QoTHW6Aobw1jbEwK7KMgR7Q==
 
+react-native-nitro-image@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/react-native-nitro-image/-/react-native-nitro-image-0.10.2.tgz#860d8890f52955b410db48b572ccc077b71b06c9"
+  integrity sha512-lrxxJX9Zb5ksJCkgvcQ2x56Wiih57yJSQbeayrcabkphi6/40YxugxCCl0s3D1t3oUh+VuGaiK1QkNm6J8Uj9Q==
+
+react-native-nitro-modules@^0.33.7:
+  version "0.33.7"
+  resolved "https://registry.yarnpkg.com/react-native-nitro-modules/-/react-native-nitro-modules-0.33.7.tgz#eb8104cc19e4242ab325666af24ea6ffc8b1539e"
+  integrity sha512-WepMobWe4j1Ae5GQ5RxYGBdBpJBwzP6zaOxJ7r6nhbY5iyl01DL3Gsh4gk8edzNFRuAh1rvXDAHIipq8SahxeQ==
+
 react-native-reanimated@~4.1.1:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-4.1.6.tgz#9d3d06416eaf48ab25594611185f66b34e404291"

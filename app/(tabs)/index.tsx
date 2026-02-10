@@ -1,6 +1,7 @@
 import { Image as ExpoImage } from 'expo-image';
 import { useState } from 'react';
 import { Linking, Image as RNImage, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { NitroImage, useImage } from 'react-native-nitro-image';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -15,6 +16,7 @@ const getImageSources = () => [
 export default function HomeScreen() {
   const [showRNImage, setShowRNImage] = useState(false);
   const [showExpoImage, setShowExpoImage] = useState(false);
+  const [showNitroImage, setShowNitroImage] = useState(false);
   const [imageSources, setImageSources] = useState<ReturnType<typeof getImageSources> | null>(null);
 
   const loadImages = () => {
@@ -33,6 +35,11 @@ export default function HomeScreen() {
     setShowExpoImage(value);
   };
 
+  const handleNitroImageToggle = (value: boolean) => {
+    if (value) loadImages();
+    setShowNitroImage(value);
+  };
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title" style={styles.title}>Image Comparison</ThemedText>
@@ -40,38 +47,53 @@ export default function HomeScreen() {
       <View style={{ padding: 10, backgroundColor: '#e0e0e0', borderRadius: 8, marginBottom: 30 }}>
         <Text>Images by Michael Schlierf</Text>
         <Text onPress={() => {
-          Linking.openURL('https://www.pexels.com/@michael-schlierf-757699958/').catch(() => {});
+          Linking.openURL('https://www.pexels.com/@michael-schlierf-757699958/').catch(() => { });
         }}>https://www.pexels.com/@michael-schlierf-757699958/</Text>
       </View>
 
       <View style={styles.row}>
         <ThemedText style={styles.label}>RN Image:</ThemedText>
         <Switch value={showRNImage} onValueChange={handleRNImageToggle} />
-        <ScrollView horizontal style={[styles.imageContainer]}>
-          {showRNImage && imageSources && (
+        {showRNImage && imageSources && (
+          <ScrollView horizontal style={[styles.imageContainer]}>
             <>
               <RNImage source={imageSources[0]} style={styles.image} resizeMode="contain" />
               <RNImage source={imageSources[1]} style={styles.image} resizeMode="contain" />
               <RNImage source={imageSources[2]} style={styles.image} resizeMode="contain" />
               <RNImage source={imageSources[3]} style={styles.image} resizeMode="contain" />
             </>
-          )}
-        </ScrollView>
+          </ScrollView>
+        )}
       </View>
 
       <View style={styles.row}>
         <ThemedText style={styles.label}>Expo Image:</ThemedText>
         <Switch value={showExpoImage} onValueChange={handleExpoImageToggle} />
-        <ScrollView horizontal style={[styles.imageContainer]}>
-          {showExpoImage && imageSources && (
+        {showExpoImage && imageSources && (
+          <ScrollView horizontal style={[styles.imageContainer]}>
             <>
               <ExpoImage source={imageSources[0]} style={styles.image} contentFit="contain" />
               <ExpoImage source={imageSources[1]} style={styles.image} contentFit="contain" />
               <ExpoImage source={imageSources[2]} style={styles.image} contentFit="contain" />
               <ExpoImage source={imageSources[3]} style={styles.image} contentFit="contain" />
             </>
-          )}
-        </ScrollView>
+          </ScrollView>
+        )}
+      </View>
+
+      <View style={styles.row}>
+        <ThemedText style={styles.label}>Nitro Image:</ThemedText>
+        <Switch value={showNitroImage} onValueChange={handleNitroImageToggle} />
+        {showNitroImage && imageSources && (
+          <ScrollView horizontal style={[styles.imageContainer]}>
+            <>
+              <NitroImage image={imageSources[0]} style={styles.image} resizeMode="contain" />
+              <NitroImage image={imageSources[1]} style={styles.image} resizeMode="contain" />
+              <NitroImage image={imageSources[2]} style={styles.image} resizeMode="contain" />
+              <NitroImage image={imageSources[3]} style={styles.image} resizeMode="contain" />
+            </>
+          </ScrollView>
+        )}
       </View>
     </ThemedView>
   );
